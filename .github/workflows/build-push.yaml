@@ -36,9 +36,9 @@ jobs:
         
     - name: Install Cog
       run: |
-        curl -fsSL https://raw.githubusercontent.com/replicate/cog/main/install.sh | bash
-        sudo mv cog /usr/local/bin/
-
+        sudo curl -o /usr/local/bin/cog -L "https://github.com/replicate/cog/releases/latest/download/cog_$(uname -s)_$(uname -m)"
+        sudo chmod +x /usr/local/bin/cog
+        
     - name: Build Docker image with Cog
       run: cog build -t ghcr.io/${{ github.repository }}/pb-cog:${{ github.event.inputs.version }}
 
