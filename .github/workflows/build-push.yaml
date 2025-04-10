@@ -4,16 +4,16 @@ on:
   push:
     branches:
       - main
-      workflow_dispatch:
-        inputs:
-          version:
-            description: 'Version tag for the Docker image'
-            required: true
-            default: 'latest'
-          model:
-            description: 'Model to build and push (schnell, dev, fill-dev, canny-dev, depth-dev, redux-dev, redux-schnell, schnell-lora, dev-lora, hotswap-lora)'
-            required: true
-            default: 'dev'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag for the Docker image'
+        required: true
+        default: 'latest'
+      model:
+        description: 'Model to build and push (schnell, dev, fill-dev, canny-dev, depth-dev, redux-dev, redux-schnell, schnell-lora, dev-lora, hotswap-lora)'
+        required: true
+        default: 'dev'
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
